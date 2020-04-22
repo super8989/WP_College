@@ -18,7 +18,12 @@ add_action('wp_enqueue_scripts', 'university_files'); // wp function('load a CSS
 
 function university_features()
 {
-    add_theme_support('title-tag');
+    // dynamic navigation menu
+    // register_nav_menu('headerMenuLocation', 'Header Menu Location'); // adds menu option to the theme -> ('menu location', 'name to show in WP admin' )
+    // register_nav_menu('footerLocationOne', 'Footer Location One');
+    // register_nav_menu('footerLocationTwo', 'Footer Location Two');
+
+    add_theme_support('title-tag'); // adds document title tag to HTML -> browser tab title
 }
 
 add_action('after_setup_theme', 'university_features');
