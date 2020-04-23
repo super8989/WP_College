@@ -22,8 +22,28 @@ function university_features()
     // register_nav_menu('headerMenuLocation', 'Header Menu Location'); // adds menu option to the theme -> ('menu location', 'name to show in WP admin' )
     // register_nav_menu('footerLocationOne', 'Footer Location One');
     // register_nav_menu('footerLocationTwo', 'Footer Location Two');
-
     add_theme_support('title-tag'); // adds document title tag to HTML -> browser tab title
 }
 
 add_action('after_setup_theme', 'university_features');
+
+
+// Creating a new post type, Event --> moved to mu-plugins folder so this data is available across all themes
+/* function university_post_types()
+{
+    // ('name of custom post type', 'array')
+    register_post_type('event', array(
+        'public' => true,
+        'labels' => array(
+            'name' => 'Events',
+            'add_new_item' => "Add New Event",
+            'edit_item' => "Edit Event",
+            'all_items' => 'All Events',
+            'singular_name' => 'Event'
+        ),
+        'menu_icon' => 'dashicons-calendar'
+    ));
+}
+
+// create new post type
+add_action('init', 'university_post_types');  // ('hook', 'function name') */
