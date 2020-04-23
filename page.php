@@ -27,7 +27,7 @@
 
       if ($theParent) { ?>
 
-  <!-- Back to.. Menu -->
+  <!-- Back to.. Menu metabox -->
   <div class="metabox metabox--position-up metabox--with-home-link">
     <p>
       <a class="metabox__blog-home-link" href="<?php echo get_permalink($theParent) ?>">
