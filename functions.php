@@ -32,6 +32,7 @@ function pageBanner($args = NULL) {
 
 <?php }
 
+
 function university_files() {
     wp_enqueue_script('googleMap', '//maps.googleapis.com/maps/api/js?key=', null, '1.0', true);
     wp_enqueue_script('main-university-js', get_theme_file_uri('/js/scripts-bundled.js'), null, '1.0', true);
@@ -42,6 +43,7 @@ function university_files() {
 
 add_action('wp_enqueue_scripts', 'university_files');
 
+
 function university_features() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
@@ -51,6 +53,7 @@ function university_features() {
 }
 
 add_action('after_setup_theme', 'university_features');
+
 
 function university_adjust_queries($query) {
      if (!is_admin() and is_post_type_archive('campus') and $query->is_main_query()) {
