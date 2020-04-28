@@ -44,6 +44,18 @@
       }
 
       if (get_post_type() == 'program') {
+        $relatedCampuses = get_field('related_campus');
+
+        if ($relatedCampuses) {
+          foreach($relatedCampuses as $campus) {
+            array_push($results['campuses'], array(
+              'title' => get_the_title($campus),
+              'permalink' => get_the_permalink($campus)
+            ));
+          }
+        }
+        
+
         array_push($results['programs'], array(
           'title' => get_the_title(),
           'permalink' => get_the_permalink(),
@@ -103,7 +115,6 @@
 
         if (get_post_type() == 'event') {
           $eventDate = new DateTime(get_field('event_date'));
-
           $description = null;
 
           if (has_excerpt()) {
@@ -111,7 +122,6 @@
           } else {
             $description = wp_trim_words(get_the_content(), 18);
           }
-
 
           array_push($results['events'], array(
             'title' => get_the_title(),

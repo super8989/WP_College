@@ -128,7 +128,7 @@ class Search {
                   </a>
                   <div class="event-summary__content">
                     <h5 class="event-summary__title headline headline--tiny"><a href="${item.permalink}">${item.title}</a></h5>
-                    <p>${item.description}<a href="${item.permalink}" class="nu gray">Learn more</a></p>
+                    <p>${item.description}<a href="${item.permalink}" class="nu gray"> Learn more</a></p>
                   </div>
                 </div>
                 `).join('')}
