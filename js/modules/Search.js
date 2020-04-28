@@ -85,7 +85,7 @@ class Search {
             ${
 							results.professors.length
 								? '<ul class="professor-cards">'
-								: `<p>No professors match that search.</p>`
+								: `<p>No professors match that search. <a href="${universityData.root_url}/professors">View all professors</a></p>`
 						}
             ${results.professors
 							.map((item) => `
