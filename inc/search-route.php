@@ -34,14 +34,17 @@
           'authorName' => get_the_author()
         ));
       }
+      
 
       if (get_post_type() == 'professor') {
         array_push($results['professors'], array(
           'title' => get_the_title(),
           'permalink' => get_the_permalink(),
+          'postType' => get_post_type(),
           'image' => get_the_post_thumbnail_url(0, 'professorLandscape')
         ));
       }
+
 
       if (get_post_type() == 'program') {
         $relatedCampuses = get_field('related_campus');
@@ -50,25 +53,30 @@
           foreach($relatedCampuses as $campus) {
             array_push($results['campuses'], array(
               'title' => get_the_title($campus),
+              'postType' => get_post_type(),
               'permalink' => get_the_permalink($campus)
             ));
           }
         }
-        
 
         array_push($results['programs'], array(
           'title' => get_the_title(),
           'permalink' => get_the_permalink(),
+          'postType' => get_post_type(),
           'id' => get_the_ID()
         ));
       }
 
+
       if (get_post_type() == 'campus') {
         array_push($results['campuses'], array(
           'title' => get_the_title(),
+          'postType' => get_post_type(),
           'permalink' => get_the_permalink()
         ));
       }
+
+
 
       if (get_post_type() == 'event') {
         $eventDate = new DateTime(get_field('event_date'));
@@ -85,6 +93,7 @@
         array_push($results['events'], array(
           'title' => get_the_title(),
           'permalink' => get_the_permalink(),
+          'postType' => get_post_type(),
           'month' => $eventDate->format('M'),
           'day' => $eventDate->format('d'),
           'description' => $description
@@ -104,6 +113,8 @@
             'value' => '"' . $item['id'] . '"'
         ));
       }
+
+
 
       $programRelationshipQuery = new WP_Query(array(
         'post_type' => array('professor', 'event'),
